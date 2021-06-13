@@ -1,0 +1,14 @@
+function rot13(str) {
+  let a = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  str = str.split('');
+  for (let i = 0; i < str.length; i++) {
+    if (a.indexOf(str[i]) >= 13) {
+      str[i] = a[a.indexOf(str[i])-13]; 
+    } else if (a.indexOf(str[i]) < 13 && str[i] != ' ' && str[i] != '!' && str[i] != '?' && str[i] != '.') {
+      str[i] = a[a.length - (13 - a.indexOf(str[i]))]
+    }
+  }
+  return str.join('');
+}
+
+rot13("SERR PBQR PNZC");
